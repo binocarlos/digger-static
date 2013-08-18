@@ -1,0 +1,26 @@
+{
+  "name": "digger-static",
+  "version": "0.0.1",
+  "description": "A static digger supplier that selects the contents of xml, json and csv files in a folder",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/digger-static.git"
+  },
+  "keywords": [
+    "digger"
+  ],
+  "author": "Kai Davenport",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binocarlos/digger-static/issues"
+  },
+  "dependencies": {
+    "digger-supplier": "0.0.5",
+    "digger-xml": "0.0.1",
+    "csv": "~0.3.6"
+  }
+}

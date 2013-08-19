@@ -23,23 +23,41 @@ module.exports = function(options){
 	options = options || {};
 
 	var folder = options.folder;
+	var file = options.file;
 
-	if(!fs.existsSync(folder)){
-		throw new Error(folder + ' does not exist');
+	if(file){
+		if(!fs.existsSync(file)){
+			throw new Error(file + ' does not exist');
+		}	
+	}
+	else{
+		if(!fs.existsSync(folder)){
+			throw new Error(folder + ' does not exist');
+		}	
 	}
 
 	var supplier = Supplier(options);
 
 	supplier.on('select', function(req, reply){
 
-		var fullpath = path.normalize(folder + req.url);
+		var fullpath = '';
+
+		if(file){
+			fullpath = file;
+		}
+		else{
+			req.url = req.url.replace(/\.(\w+)\/.*$/, function(match, ext){
+				return '.' + ext;
+			})
+			fullpath = path.normalize(folder + req.url);
+		}
 
 		fs.readFile(fullpath, 'utf8', function(error, content){
 			if(error || !content){
 				reply(error || 'no content');
 			}
 			else{
-				if(req.url.match(/\.xml$/i)){
+				if(req.url.match(/\.xml$/i) || content.match(/^\s*\</)){
 					content = XML.parse(content);
 				}
 				else if(req.url.match(/\.csv/i)){

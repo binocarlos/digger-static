@@ -19,8 +19,8 @@
     "url": "https://github.com/binocarlos/digger-static/issues"
   },
   "dependencies": {
-    "digger-supplier": "0.0.5",
-    "digger-xml": "0.0.1",
+    "digger-supplier": "~0.1.0",
+    "digger-xml": "~0.0.1",
     "csv": "~0.3.6"
   }
 }

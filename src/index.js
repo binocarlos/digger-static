@@ -75,7 +75,7 @@ module.exports = function(options){
 			}
 		})
 		
-	});
+	})
 	
 	return supplier;
 }

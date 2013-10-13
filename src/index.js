@@ -18,9 +18,18 @@ var csv = require('csv');
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function(options){
+module.exports = function(options, $digger){
 
 	options = options || {};
+
+	if(options.folder){
+		options.folder = $digger.filepath(options.folder);
+	}
+
+	if(options.file){
+		options.file = $digger.filepath(options.file);
+	}
+
 
 	var folder = options.folder;
 	var file = options.file;

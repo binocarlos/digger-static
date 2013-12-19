@@ -1,6 +1,6 @@
 {
   "name": "digger-static",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A static digger supplier that selects the contents of xml, json and csv files in a folder",
   "main": "src/index.js",
   "scripts": {
